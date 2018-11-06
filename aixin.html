@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王铁军作品</title>
+    <style>
+        .wrap {
+            position: relative;
+            /*绝对定位*/
+            width: 150px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #096;
+            animation: beat 2s infinite alternate;
+            /*动态秒数*/
+        }
+        
+        .left,
+        .right {
+            position: absolute;
+            /*相对定位*/
+            width: 100px;
+            height: 160px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+        }
+        
+        .left {
+            transform: rotate(-45deg);
+            /*转45度*/
+        }
+        
+        .right {
+            transform: translateX(43px)rotate(45deg);
+            /*右边盒子向右45度 向右平移 translateX(43px)*/
+        }
+        
+        @keyframes beat {
+            /*动态函数*/
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1)
+            }
+        }
+        
+        .da {
+            width: 120px;
+            height: 10px;
+            margin: 1px auto 0;
+        }
+        
+        #wrap {
+            width: 800px;
+            height: 500px;
+            margin: 10px auto 0;
+            background-color: #096;
+            cursor: pointer;
+        }
+        
+        #wrap img {
+            width: 100%;
+            height: 100%;
+            transition: 1s;
+        }
+        
+        #wrap:hover img {
+            transform: rotateY(360deg);
+            /*旋转X,Y,Z,*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">王铁军一颗真诚爱心
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div>
+        <p> <audio src="./img/李贵府 - 漂亮的姑娘你别怕 (DJ版).mp3 " controls="controls">
+    </audio></p>
+    </div>
+    <div class="da">
+        <p id="clock"></p>
+        <script type="text/javascript">
+            (function action() {
+                clock.innerHTML = (function(date) {
+                    return date.getFullYear() +
+                        "/" +
+                        (date.getMonth() + 1) +
+                        "/" +
+                        (date.getDay() + 4) +
+                        "/" +
+                        date.getHours() +
+                        ":" +
+                        date.getMinutes() +
+                        ":" +
+                        date.getSeconds();
+                })(new Date());
+                requestAnimationFrame(action);
+            })()
+        </script>
+    </div>
+    <div id="wrap">
+        <img src="./img/1.jpg" alt="" />
+    </div>
+</body>
+
+</html>
